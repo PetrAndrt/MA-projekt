@@ -13,7 +13,7 @@ import string
 #>> cd Desktop\PYTHON
 #
 # 3. Pro spusteni programu spustis tohle:
-#>> #>> streamlit run 3.TEXT.py
+#>> #>> streamlit run 3 text.py
 
 
 morse_code_dict = {
@@ -49,7 +49,7 @@ def morse_to_text(morse):
 st.write("2. TEXT")
 
 # Input for text in Latin alphabet
-text_abeceda = st.text_input('Napiš text v latinské abecedě:', 
+text_abeceda = st.text_input('Napiš text v latinské abecedě (písmena a číslice):', 
                              placeholder="Ab1Cd 2Ef3Gn4CHi5Jk6Lm7", 
                              key="abeceda", 
                              max_chars=48).upper()
@@ -58,7 +58,7 @@ if text_abeceda:
     st.write(morseova_abeceda)
 
 # Input for text in Morse code
-text_abeceda_2 = st.text_input('Napiš text v morseových kódech:', 
+text_abeceda_2 = st.text_input('Napiš text v morseových kódech (písmena a číslice):', 
                                placeholder=".- -... .---- -.-. -.. / ..--- . ..-. ...-- --. / -. ....- ---- .. / ..... .--- -.- -.... .-.. / -- --...", 
                                key="abeceda_2", 
                                max_chars=108)
@@ -72,7 +72,7 @@ st.write("'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-
 st.write("'X': '-..-', 'Y': '-.--', 'Z': '--..', ' ': '/',")
 st.write("'1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....', '6': '-....', '7': '--...', '8': '---..', '9': '----.', '0': '-----'")
 
-
+st.write("_______________________________________________")
 
 
 

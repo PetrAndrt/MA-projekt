@@ -15,8 +15,20 @@ import string
 # 3. Pro spusteni programu spustis tohle:
 #>> streamlit run morseova_abeceda.py
 
+# Nastavení nadpisu
 st.write("KÓDY MORSEOVY ABECEDY")
-skola = st.text_input("Napiš písmeno, číslici nebo znak:", key="skola_1", max_chars=2).upper()
+
+# Textový vstup
+skola = st.text_input("Napiš písmeno, číslici nebo speciální znak:", key="skola_2", max_chars=2).upper()
+
+# Diagnostický výstup pro kontrolu hodnoty
+st.write(f"Zadaný znak: {skola}")
+
+# Funkce pro resetování text_input
+def reset_text_input():
+    st.session_state['skola_1'] = ''
+
+# Kontrola stisknutí tlačítka
 if st.button("Ukaž"):
     if skola == "A":
         st.write("'a kát' .-")
@@ -93,43 +105,40 @@ if st.button("Ukaž"):
     elif skola == "9":
         st.write("----.")
     elif skola == ".":
-        st.write("'tečka'.-.-.-")
+        st.write("'tečka' .-.-.-")
     elif skola == ",":
-        st.write("'čárka'--..--")
+        st.write("'čárka' --..--")
     elif skola == "?":
-        st.write("'otazník'..--..")
+        st.write("'otazník' ..--..")
     elif skola == "!":
-        st.write("'vykřičník'--...-")
+        st.write("'vykřičník' --...-")
     elif skola == ";":
-        st.write("'středník'-.-.-.")
+        st.write("'středník' -.-.-.")
     elif skola == ":":
-        st.write("'dvojtečka'---...")
+        st.write("'dvojtečka' ---...")
     elif skola == "(":
-        st.write("'kulatá závorka otevírací'-.--.")
+        st.write("'kulatá závorka otevírací' -.--.")
     elif skola == ")":
-        st.write("'kulatá závorka zavírací'-.--.-")
+        st.write("'kulatá závorka zavírací' -.--.-")
     elif skola == '"':
-        st.write("'uvozovky'.-..-.")
+        st.write("'uvozovky' .-..-.")
     elif skola == "_":
-        st.write("'podtržítko'..--.-")
+        st.write("'podtržítko' ..--.-")
     elif skola == "@":
-        st.write("'zavináč'.--.-")
+        st.write("'zavináč' .--.-")
     elif skola == "-":
-        st.write("'pomlčka'-....-")
+        st.write("'pomlčka' -....-")
     elif skola == "/":
-        st.write("'lomítko'-..-.")
+        st.write("'lomítko' -..-.")
     elif skola == "=":
-        st.write("'rovnítko'-...-")
+        st.write("'rovnítko' -...-")
     else:
         st.write("Není zaznamenán")
-else:
-    st.write("")
 
-st.write("_______________________________________________")
-# TEXTY
+    # Reset textového vstupu
+    reset_text_input()
 
-
-# Slovníky pro převod mezi latinskou abecedou a Morseovou abecedou
+# Morseovka slovníky a funkce
 morse_code_dict = {
     'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.', 'G': '--.', 'H': '....',
     'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 'P': '.--.',
@@ -160,6 +169,11 @@ def morse_to_text(morse):
         translated_word = ''.join(latin_code_dict.get(char, '') for char in characters)
         translated_text.append(translated_word)
     return ' '.join(translated_text)
+
+# Zobrazení oddělovače
+st.write("_______________________________________________")
+
+
 
 
 
