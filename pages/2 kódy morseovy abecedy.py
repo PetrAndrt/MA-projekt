@@ -4,6 +4,7 @@ import time
 import datetime as dt
 import random
 import string
+import tkinter as tk
 
 # py_como_lekce\Scripts\activate
 # 1. Po spusteni programu nainstalujes timhle:
@@ -132,11 +133,15 @@ if st.button("Ukaž"):
         st.write("'lomítko' -..-.")
     elif skola == "=":
         st.write("'rovnítko' -...-")
+    elif skola == "+":
+        st.write("'plus' .-.-.")
     else:
         st.write("Není zaznamenán")
 
     # Reset textového vstupu
     reset_text_input()
+    
+
 
 # Morseovka slovníky a funkce
 morse_code_dict = {
@@ -168,7 +173,9 @@ def morse_to_text(morse):
         characters = word.split()
         translated_word = ''.join(latin_code_dict.get(char, '') for char in characters)
         translated_text.append(translated_word)
-    return ' '.join(translated_text)
+ #   return ' '.join(translated_text)
+    time.sleep(1)
+    st.rerun('')
 
 # Zobrazení oddělovače
 st.write("_______________________________________________")

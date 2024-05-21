@@ -20,7 +20,7 @@ import string
 
 
 # CVIČENÍ 1
-st.write("3. PROCVIČOVÁNÍ SE ZADANÝM ZNAKEM")
+st.write("PROCVIČOVÁNÍ SE ZADANÝM ZNAKEM")
 morseova_abeceda_2 = st.text_input("Morseův kód:",max_chars=5,key="cviceni",placeholder="--.-")
 if morseova_abeceda_2 == "-----":
  prelozeno = "0"
@@ -104,7 +104,7 @@ else:
 st.write('''Do horního textového pole napiš jeden morseův kód (písmeno nebo číslici) 
          a do dolního odpovídající písmeno nebo číslici.
          Můžeš to zkusit i obráceně.''')
-text = st.text_input("Latinsé písmeno nebo arabská císlice:",max_chars=1,key="text",placeholder="Q")
+text = st.text_input("Latinské písmeno nebo arabská císlice:",max_chars=1,key="text",placeholder="Q")
 
 if prelozeno == "CHYBA":
     st.write("Tohle přece neexistuje.")

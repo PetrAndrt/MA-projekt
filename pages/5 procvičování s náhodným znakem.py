@@ -22,7 +22,7 @@ import string
  
 
 # CVIČENÍ 2
-st.write("4. PROCVIČOVÁNÍ S NÁHODNÝM ZNAKEM")
+st.write("PROCVIČOVÁNÍ S NÁHODNÝM ZNAKEM")
 
 
 
@@ -57,9 +57,9 @@ if "random_character" in st.session_state:
             else:
                 st.write("Špatně")
         else:
-            st.write("Náhodný znak není podporován pro kontrolu Morseova kódu")
+            st.write("Náhodný znak není podporován pro kontrolu Morseova kódu.")
 else:
-    st.write("Klikněte na 'Náhodný znak' pro generování znaku")
+    st.write("Klikněte na 'Náhodný znak' pro generování znaku.")
 st.write("_______________________________________________")
 
 

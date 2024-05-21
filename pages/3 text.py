@@ -46,7 +46,7 @@ def morse_to_text(morse):
     return ''.join(morse_code_dict.get(char, '') for char in morse.split())
 
 # Streamlit interface
-st.write("2. TEXT")
+st.write("TEXT")
 
 # Input for text in Latin alphabet
 text_abeceda = st.text_input('Napiš text v latinské abecedě (písmena a číslice):', 

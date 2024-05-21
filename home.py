@@ -24,13 +24,22 @@ import streamlit as st
 #
 # Pridat zmeny k odeslani
 #>> git add *
+#
+# Pomenujes zmenu kterou jsi udelal
+#>> git commit -m "zmena"
+#
+# Odeslat zmenu na server streamlit
+#>> git push
 
+
+# Zobrazit seznam vsech odeslanych zmen
+#>> git log
 
 
 st.write('''Samuel Finley Breese Morse (27. dubna 1791 - 2. dubna 1872) byl americký sochař, malíř a vynálezce. Vyvinul první prakticky použitelný elektrický telegraf a v něm využívanou morseovu abecedu, čímž se zasloužil o výrazný rozvoj telegrafické komunikace v devatenáctém století.
          
          
-Morseova abeceda (obecně morseovka) je skupina symbolů, která je používána v telegrafii. Kóduje znaky latinské abecedy, číslice a speciální znaky do kombinací krátkých a dlouhých signálů. Ty je možné přenášet na dálku jednodušším způsobem než všechny znaky abecedy.
+Morseova abeceda je skupina symbolů, která je používána v telegrafii. Kóduje znaky latinské abecedy, číslice a speciální znaky do kombinací krátkých a dlouhých signálů. Ty je možné přenášet na dálku jednodušším způsobem než všechny znaky abecedy.
 
 K přenosu morseovky je možné použít zvukový signál, elektrický signál (telegraf) a optický signál (signalizace vlajkami). Záznam na papír pomocí teček a čárek, světelné záblesky. Nejběžnější použití je dnes v amatérské radiotelegrafii. Rychlost komunikace se pohybuje od 60 do 250 znaků za minutu.
          
@@ -42,7 +51,7 @@ Morseovka se v současnosti používá mj. pro dorozumívání s paralyzovanými
 
 Existují také snahy o použití Morseovky v mobilních telefonech. Při jejím dobrém ovládání je kódování textových zpráv rychlejší, než pomocí „klávesnice“ na mobilu. Stačí jen 2 tlačítka nebo jen 1 tlačítko s krátkým a dlouhým stiskem. Příjemci je zpráva ovšem zobrazována v latince.
 
-Analogicky mohou být příchozí textové zprávy převedeny do Morseovky a zobrazeny pomocí vibrací, což by umožnilo „hands-free čtení“ textových zpráv.  
+Analogicky mohou být příchozí textové zprávy převedeny do Morseovky a zobrazeny pomocí vibrací.  
          ''')
 
 st.write("_______________________________________________")
