@@ -16,41 +16,23 @@ import string
 #>> streamlit run morseova_abeceda.py
 
 # Nastavení nadpisu
-st.write("KÓDY MORSEOVY ABECEDY")
+st.write("ZNAKY")
 
-# Textový vstup
-skola = st.text_input("Napiš písmeno, číslici nebo speciální znak:", key="skola_2", max_chars=2).upper()
+# Morseovka slovník
+morse_code_dict = {
+    'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.', 'G': '--.', 'H': '....',
+    'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 'P': '.--.',
+    'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
+    'Y': '-.--', 'Z': '--..', '0': '-----', '1': '.----', '2': '..---', '3': '...--', '4': '....-',
+    '5': '.....', '6': '-....', '7': '--...', '8': '---..', '9': '----.', '.': '.-.-.-', ',': '--..--',
+    '?': '..--..', '!': '--...-', ';': '-.-.-.', ':': '---...', '(': '-.--.', ')': '-.--.-', '"': '.-..-.',
+    '_': '..--.-', '@': '.--.-', '-': '-....-', '/': '-..-.', '=': '-...-', '+': '.-.-.', 'CH': '----'
+}
 
-# Diagnostický výstup pro kontrolu hodnoty
-st.write(f"Zadaný znak: {skola}")
-
-# Funkce pro resetování text_input
-def reset_text_input():
-    st.session_state['skola_2'] = ''
-
-# Kontrola stisknutí tlačítka
-if st.button("Ukaž"):
-    morse_code_dict = {
-        'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.', 'G': '--.', 'H': '....',
-        'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 'P': '.--.',
-        'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
-        'Y': '-.--', 'Z': '--..', '0': '-----', '1': '.----', '2': '..---', '3': '...--', '4': '....-',
-        '5': '.....', '6': '-....', '7': '--...', '8': '---..', '9': '----.', '.': '.-.-.-', ',': '--..--',
-        '?': '..--..', '!': '--...-', ';': '-.-.-.', ':': '---...', '(': '-.--.', ')': '-.--.-', '"': '.-..-.',
-        '_': '..--.-', '@': '.--.-', '-': '-....-', '/': '-..-.', '=': '-...-', '+': '.-.-.', 'CH': '----'
-    }
-
-    if skola in morse_code_dict:
-        st.write(f"Morseův kód: {morse_code_dict[skola]}")
-    else:
-        st.write("Není zaznamenán")
-
-    # Reset textového vstupu
-    reset_text_input()
-
-# Morseovka slovníky a funkce
+# Morseovka na latinské znaky slovník
 latin_code_dict = {v: k for k, v in morse_code_dict.items()}
 
+# Funkce pro převod textu na Morseovku
 def text_to_morse(text):
     morse_text = []
     i = 0
@@ -63,6 +45,7 @@ def text_to_morse(text):
             i += 1
     return ' '.join(morse_text)
 
+# Funkce pro převod Morseovky na text
 def morse_to_text(morse):
     words = morse.split('/')
     translated_text = []
@@ -72,8 +55,27 @@ def morse_to_text(morse):
         translated_text.append(translated_word)
     return ' '.join(translated_text)
 
+# Textový vstup
+skola = st.text_input("Napiš písmeno, číslici nebo speciální znak:", key="skola_2", max_chars=2).upper()
+
+# Diagnostický výstup pro kontrolu hodnoty
+st.write(f"Zadaný znak: {skola}")
+
+# Kontrola stisknutí tlačítka
+if st.button("Ukaž"):
+    if skola in morse_code_dict:
+        st.write(f"Morseův kód: {morse_code_dict[skola]}")
+    else:
+        st.write("Není zaznamenán")
+
+# Přidání tlačítka pro resetování textového vstupu
+if st.button("Reset"):
+    st.experimental_rerun()
+
+st.write("TEXT")
+
 # Textový vstup pro převod na Morseovku
-text_input = st.text_input("Napiš text pro převod do Morseovy abecedy:", key="text_input")
+text_input = st.text_input("Napiš text (písmena a číslice) pro převod do Morseovy abecedy:", key="text_input")
 
 if st.button("Převést na Morseovku"):
     morse_output = text_to_morse(text_input.upper())

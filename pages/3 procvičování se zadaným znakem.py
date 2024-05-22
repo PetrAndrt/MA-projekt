@@ -97,14 +97,14 @@ elif morseova_abeceda_2 == ".":
 elif morseova_abeceda_2 == "-":
  prelozeno = "T"and"t"
 elif morseova_abeceda_2 == "":
- prelozeno = "Napiš písmeno nebo číslo morseovým písmem"
+ prelozeno = "Napiš písmeno nebo číslo Morseovým písmem"
 else:
  prelozeno = "CHYBA"
 
-st.write('''Do horního textového pole napiš jeden morseův kód (písmeno nebo číslici) 
+st.write('''Do horního textového pole napiš jeden Morseův kód (písmeno nebo číslici) 
          a do dolního odpovídající písmeno nebo číslici.
          Můžeš to zkusit i obráceně.''')
-text = st.text_input("Latinské písmeno nebo arabská císlice:",max_chars=1,key="text",placeholder="Q")
+text = st.text_input("Latinské písmeno nebo arabská císlice:",max_chars=2,key="text",placeholder="Q")
 
 if prelozeno == "CHYBA":
     st.write("Tohle přece neexistuje.")
